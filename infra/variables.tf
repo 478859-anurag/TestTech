@@ -9,7 +9,7 @@ variable "vpc_id" {
 
 variable "postgresql_version" {
   description = "PostgreSQL version to be used"
-  default     = "10.11"
+  default     = "10.14"
 }
 
 variable "postgresql_password" {
