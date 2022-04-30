@@ -7,13 +7,13 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "vanessa-servian-terraform-state"
+    bucket = "annurag-servian-bucket-1"
     key    = "terraform.tfstate"
-    region = "ap-southeast-2"
+    region = "eu-west-2"
   }
 }
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "ap-southeast-2"
+  region = "eu-west-2"
 }
