@@ -38,4 +38,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: make update-db
+        run: make update_db
