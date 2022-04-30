@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "annurag-servian-bucket-1"
+    bucket = "anurag-servian-bucket-1"
     key    = "terraform.tfstate"
     region = "eu-west-2"
   }
