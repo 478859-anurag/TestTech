@@ -1,5 +1,5 @@
 variable "prefix" {
-  description = "To help avoid resources name conflicts in the cloud."
+  description = "To help avoid resources name conflicts in the cloud"
   default     = "servian-tech-challenge"
 }
 
