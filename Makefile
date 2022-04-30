@@ -8,7 +8,7 @@ apply:
 	docker-compose run terraform apply terraform.plan
 
 destroy:
-	docker-compose run terraform destroy
+	docker-compose run terraform destroy -auto-approve
 
 output:
 	docker-compose run terraform output
