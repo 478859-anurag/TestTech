@@ -38,4 +38,10 @@ jobs:
 
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        env:
+          TF_VAR_vpc_id: ${{ secrets.VPC_ID }}
+          TF_VAR_postgresql_password: ${{ secrets.POSTGRESQL_PASSWORD }}
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
+          TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
+          TF_VAR_production: false
         run: make destroy
