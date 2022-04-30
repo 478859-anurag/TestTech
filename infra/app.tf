@@ -2,10 +2,6 @@ resource "aws_ecs_cluster" "app" {
   name = "${var.prefix}-app"
 }
 
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
-}
-
 resource "aws_ecs_task_definition" "app" {
   family                   = var.prefix
   requires_compatibilities = ["FARGATE"]
@@ -89,7 +85,7 @@ resource "aws_lb_target_group" "app" {
   port        = 3000
   protocol    = "HTTP"
   target_type = "ip"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 
   health_check {
     path = "/healthcheck"
@@ -124,7 +120,7 @@ resource "aws_lb_listener" "app_443" {
 resource "aws_security_group" "lb_sg" {
   name        = "${var.prefix}-lb-sg"
   description = "Allow connections from internet"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 
   ingress = [
     {
@@ -173,7 +169,7 @@ resource "aws_security_group" "lb_sg" {
 resource "aws_security_group" "app" {
   name        = "${var.prefix}-server"
   description = "Allow connections from the load balancer"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 
   ingress = [
     {
