@@ -88,7 +88,7 @@ No extra configuration is needed, just make sure your AWS credentials have acces
 
 Before running the Terraform commands, you will need to make sure to configure your backend to point to your own S3 Bucket and have all following parameters configured as environment variables.
 
-To configure the backend, you will need to edit the file [config.tf](/IaC/config.tf) with below on line 11 and 13:
+To configure the backend, you will need to edit the file (./IaC/config.tf) with below on line 11 and 13:
 
     bucket = "<your-bucket-name>"
     region = "<regoin here>"
