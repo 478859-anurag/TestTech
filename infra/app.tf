@@ -1,7 +1,9 @@
+# Creating Elastic container service cluster for logical grouping of tasks and services.
 resource "aws_ecs_cluster" "app" {
   name = "${var.prefix}-app"
 }
 
+# Defining Elastic container service tasks with conatiner definition and environment variables.
 resource "aws_ecs_task_definition" "app" {
   family                   = var.prefix
   requires_compatibilities = ["FARGATE"]
@@ -50,6 +52,7 @@ resource "aws_ecs_task_definition" "app" {
   ])
 }
 
+# Defining Elastic container service using FARGATE.
 resource "aws_ecs_service" "app" {
   name            = "app"
   cluster         = aws_ecs_cluster.app.id
@@ -70,6 +73,7 @@ resource "aws_ecs_service" "app" {
   }
 }
 
+# Creating AWS Load Balancer for managing traffic.
 resource "aws_lb" "app" {
   name               = "${var.prefix}-lb"
   internal           = false
@@ -117,6 +121,8 @@ resource "aws_lb_listener" "app_443" {
   }
 }
 
+
+# Defining AWS Security Group with all inboud and outbound rules.
 resource "aws_security_group" "lb_sg" {
   name        = "${var.prefix}-lb-sg"
   description = "Allow connections from internet"
@@ -204,11 +210,13 @@ resource "aws_security_group" "app" {
   }
 }
 
+# Defining AWS Cloudwatch for troubleshooting application using logs.
 resource "aws_cloudwatch_log_group" "default" {
   name              = "/ecs/${var.prefix}"
   retention_in_days = 7
 }
 
+# Defining AWS route53 record for DNS routing.
 resource "aws_route53_record" "app" {
   count   = var.domain_name == "" ? 0 : 1
   zone_id = data.aws_route53_zone.selected[0].zone_id
