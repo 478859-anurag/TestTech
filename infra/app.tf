@@ -3,7 +3,7 @@ resource "aws_ecs_cluster" "app" {
   name = "${var.prefix}-app"
 }
 
-# Defining Elastic container service tasks with conatiner definition and environment variables.
+# Defining Elastic container service tasks with conatiner definition and environment variables. 
 resource "aws_ecs_task_definition" "app" {
   family                   = var.prefix
   requires_compatibilities = ["FARGATE"]
