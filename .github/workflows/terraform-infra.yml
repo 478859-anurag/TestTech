@@ -44,4 +44,4 @@ jobs:
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
           TF_VAR_certificate_arn: ${{ secrets.CERTIFICATE_ARN }}
           TF_VAR_production: false
-        run: make apply
+        run: make update_db
