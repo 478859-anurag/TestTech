@@ -8,7 +8,11 @@
 
 ### AWS (Amazon Web Services)
 
-AWS was chosen as the cloud provider as while doing certification for Terraform, I had used the examples for IaC on AWS only, also it's easier to find information, although in past I have majorly used IBM Cloud Platform.
+AWS was chosen as the cloud provider. As while doing certification for Terraform last year, I had used the examples for IaC on AWS. Also it's easier to find information on AWS, although in past I have majorly used IBM Cloud Platform as stategic cloud partner in my project work.
+
+### Terraform
+
+Terraform is used as IaC (Infrastructure as code) tool to manage cloud services and due to its declarative syntax. Here Terraform is used to create, manage and destroy AWS resources.
 
 ### Amazon Elastic Container Service (ECS)
 
@@ -58,9 +62,7 @@ Source code management and to automate the application workflow. It was configur
 
 It makes reference to the use of the 3 technologies, Docker, Make and Docker Compose, used to test, build, run and deploy the application. 3Musketeers mainly helps with consistency across environments, running the same commands no matter if you are running the deployment locally or from a pipeline.
 
-### Terraform
 
-Infrastructure as a code tool is used to manage cloud services and due to its declarative syntax, it is easier to track changes through source code. In this case, it was used to create, manage and destroy AWS resources.
 
 ---
 
