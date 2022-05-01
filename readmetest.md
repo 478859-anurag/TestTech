@@ -189,23 +189,23 @@ run: make plan
 
 ## 6. Challenges
 
-- It was quite challenging to deploy the entire stack on AWS. It was the first time I did this from scratch. So I had to learn to run containers on AWS, Load Balancers and I still couldn't get private subnets. Prior to that, I had only created RDS databases and EC2 instances using Ansible for configuration management.
+- It was really challenging to deploy the entire stack on AWS, It was first time I was deploying a whole application with frontend and backend using ECS (used EC2 a few times in past)So I had to learn to run containers on AWS, Load Balancers.
 
-- Get update db script to work from containers (too hard to get variable values from commands inside a container). It was also very difficult to get the correct syntax for all the variables and work overriding the task definition to run `updatedb` instead of `serve`.
+- It was quite difficult to make update_db command to work as well, as I was getting mutiple errors/issues, at last decided to run ECS task run command to make it work.
 
 - Having all security groups open only the ports they need and keeping everything running.
-
-- Very difficult to get the 443 listener to work with a valid certificate. Still not very confident of how it all connects.
 
 ---
 
 ## 7. Future Recommendations
 
-- Resource creation has been tested being created in default AWS VPC/subnets, hence having public access. I have no experience creating VPC/subnets/route tables/etc from scratch and it's still confusing for me. However, I chose to ensure that security groups are only open for what is needed.
+- Make the URL secure and accessible on https.
+
+- Create new VPC using Terraform and utilize that inside all terraform files, as intially started with default VPC.
 
 - Move application database from AWS Aurora provisioned to serverless to save money.
 
-- Fix update_db script to use the 3Musketeers pattern.
+- Fix update_db script to switch from shell script to actual depoyment automation.
 
 [Access old README](/readme_old.md)
 
