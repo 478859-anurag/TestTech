@@ -1,5 +1,5 @@
 output "alb_dns_name" {
-  description = "public accessible url to access application"
+  description = "public accessible url to access application."
   value       = aws_lb.app.dns_name
 }
 
