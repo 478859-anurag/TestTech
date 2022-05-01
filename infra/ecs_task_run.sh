@@ -10,10 +10,7 @@ CLUSTER_NAME=$(terraform output ecs_cluster_name | sed 's/"//g')
 TASK_NAME=$(terraform output prefix | sed 's/"//g')
 PUBLIC_IP="ENABLED"
 
-echo $SUBNET
-echo $SG
-echo $CLUSTER_NAME
-echo $TASK_NAME
+export AWS_DEFAULT_REGION=eu-west-2
 
 aws ecs run-task \
     --task-definition $TASK_NAME \
